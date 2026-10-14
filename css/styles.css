@@ -74,6 +74,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ------------------------ FONDO CON SABOR (Fase 6) ------------------- */
+/* Silueta tenue de montañas andinas. Decorativa, de bajo contraste,
+   no interactúa y se oculta en móviles pequeños (ver responsive.css). */
+.fondo-sabor {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(150px, 28vh, 240px);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.6;
+  background-color: color-mix(in srgb, var(--verde) 18%, transparent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 260' preserveAspectRatio='none'%3E%3Cpath d='M0 260 0 180 160 80 320 190 470 110 620 210 780 100 940 200 1090 130 1200 190 1200 260 Z'/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 260' preserveAspectRatio='none'%3E%3Cpath d='M0 260 0 180 160 80 320 190 470 110 620 210 780 100 940 200 1090 130 1200 190 1200 260 Z'/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat;
+}
+
+[data-tema="oscuro"] .fondo-sabor {
+  background-color: color-mix(in srgb, var(--verde) 22%, transparent);
+}
+
 h1, h2, h3 {
   line-height: 1.2;
   margin: 0 0 0.6em;
