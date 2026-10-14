@@ -2,11 +2,16 @@
 
 /**
  * iconos.js
- * Colección de iconos SVG en línea (trazo) usados en la interfaz.
+ * Colección de iconos SVG en línea usados en la interfaz.
  * Sustituyen a los emojis para lograr un aspecto uniforme y escalable.
  *
- * Cada icono se dibuja sobre un lienzo de 24x24, sin relleno, con trazo de
- * color heredado (currentColor) para adaptarse al tema claro/oscuro.
+ * Hay dos familias:
+ *  - ICONOS: iconos de trazo sobre un lienzo de 24x24, sin relleno y con
+ *    color heredado (currentColor). Se usan en botones y controles.
+ *  - ILUSTRACIONES: dibujos a color sobre un lienzo de 64x64, con rellenos
+ *    y contorno, para las tarjetas de categoría y de dificultad. Todos los
+ *    colores salen de variables CSS (--ico-*), de modo que un mismo dibujo
+ *    se ve bien en tema claro y oscuro.
  */
 
 const ICONOS = {
@@ -110,6 +115,142 @@ const ICONOS = {
     '<path d="M19.8 7.8c-1 1.5-1 6.9 0 8.4"/>'
 };
 
+/* =======================================================================
+   ILUSTRACIONES a color (lienzo 64x64) para las tarjetas de selección.
+   Solo contienen las formas; el contenedor <svg> lo añade ilustracionSVG().
+   Colores: variables --ico-* definidas en css/styles.css para cada tema.
+   ======================================================================= */
+
+const ILUSTRACIONES = {
+  /* ------------------------------ Categorías ---------------------------- */
+  /* Geografía: tres cordilleras en capas, picos nevados y sol. */
+  montanas:
+    '<circle cx="48" cy="13" r="10.5" fill="var(--ico-amarillo)" stroke="none" opacity="0.3"/>' +
+    '<circle cx="48" cy="13" r="6.5" fill="var(--ico-amarillo)"/>' +
+    '<path d="M0 64 L0 40 L14 21 L26 37 L38 18 L52 40 L64 28 L64 64 Z" fill="var(--ico-azul)"/>' +
+    '<path d="M33.5 24 L38 18 L42.5 24 L40 22 L38 23.5 L36 22 Z" fill="var(--ico-nieve)"/>' +
+    '<path d="M10.5 26 L14 21 L17.5 26 L15.5 24.5 L14 25.5 L12.5 24.5 Z" fill="var(--ico-nieve)"/>' +
+    '<path d="M0 64 L0 48 L12 36 L24 50 L34 38 L46 52 L56 44 L64 52 L64 64 Z" fill="var(--ico-azul-claro)"/>' +
+    '<path d="M0 64 L0 56 L10 48 L20 56 L30 47 L40 57 L50 50 L60 58 L64 55 L64 64 Z" fill="var(--ico-verde)"/>',
+
+  /* Historia: pergamino con renglones escritos, listón y sello de lacre. */
+  pergamino:
+    '<rect x="12" y="6" width="40" height="9" rx="4.5" fill="var(--ico-pergamino-2)"/>' +
+    '<rect x="12" y="49" width="40" height="9" rx="4.5" fill="var(--ico-pergamino-2)"/>' +
+    '<rect x="17" y="10" width="30" height="44" fill="var(--ico-pergamino)"/>' +
+    '<rect x="24" y="17" width="16" height="2.4" rx="1.2" fill="var(--ico-pergamino-linea)"/>' +
+    '<rect x="24" y="22" width="12" height="2.4" rx="1.2" fill="var(--ico-pergamino-linea)"/>' +
+    '<rect x="24" y="27" width="16" height="2.4" rx="1.2" fill="var(--ico-pergamino-linea)"/>' +
+    '<path d="M28 36 L25 48 L32 44 L39 48 L36 36 Z" fill="var(--ico-rojo)"/>' +
+    '<circle cx="32" cy="34" r="6.5" fill="var(--ico-rojo)"/>' +
+    '<circle cx="32" cy="34" r="2.8" fill="var(--ico-amarillo)"/>',
+
+  /* Cultura y tradiciones: mochila arhuaca con franjas y rombos tejidos. */
+  mochila:
+    '<path d="M21 22 C21 9 43 9 43 22" fill="none" stroke-width="2.4"/>' +
+    '<rect x="15" y="20" width="34" height="41" rx="7" fill="var(--ico-arena)"/>' +
+    '<rect x="17.5" y="27" width="29" height="7" fill="var(--ico-rojo)"/>' +
+    '<rect x="17.5" y="45" width="29" height="7" fill="var(--ico-rojo)"/>' +
+    '<path d="M21 34 L25 39 L21 44 L17 39 Z" fill="var(--ico-contorno)"/>' +
+    '<path d="M28 34 L32 39 L28 44 L24 39 Z" fill="var(--ico-contorno)"/>' +
+    '<path d="M35 34 L39 39 L35 44 L31 39 Z" fill="var(--ico-contorno)"/>' +
+    '<path d="M42 34 L46 39 L42 44 L38 39 Z" fill="var(--ico-contorno)"/>',
+
+  /* Deportes: balón con franjas tricolor y base verde. */
+  balon:
+    '<ellipse cx="32" cy="57" rx="15" ry="3.5" fill="var(--ico-verde)"/>' +
+    '<path d="M32 29 L32 12 A17 17 0 0 1 46.7 37.5 Z" fill="var(--ico-amarillo)"/>' +
+    '<path d="M32 29 L46.7 37.5 A17 17 0 0 1 17.3 37.5 Z" fill="var(--ico-azul)"/>' +
+    '<path d="M32 29 L17.3 37.5 A17 17 0 0 1 32 12 Z" fill="var(--ico-rojo)"/>' +
+    '<circle cx="25" cy="21" r="3.6" fill="var(--ico-nieve)" stroke="none" opacity="0.75"/>',
+
+  /* Ciencia y naturaleza: orquídea, flor nacional (Cattleya trianae). */
+  orquidea:
+    '<rect x="30.7" y="34" width="2.6" height="28" rx="1.3" fill="var(--ico-verde)"/>' +
+    '<path d="M32 58 C23 56 19 50 19 43 C27 45 32 51 32 58 Z" fill="var(--ico-verde)"/>' +
+    '<path d="M32 58 C41 56 45 50 45 43 C37 45 32 51 32 58 Z" fill="var(--ico-verde)"/>' +
+    '<ellipse cx="32" cy="15" rx="5.5" ry="9" fill="var(--ico-magenta)"/>' +
+    '<ellipse cx="22" cy="21" rx="5.5" ry="9" transform="rotate(-60 22 21)" fill="var(--ico-magenta)"/>' +
+    '<ellipse cx="42" cy="21" rx="5.5" ry="9" transform="rotate(60 42 21)" fill="var(--ico-magenta)"/>' +
+    '<ellipse cx="24" cy="35" rx="5.5" ry="9" transform="rotate(-120 24 35)" fill="var(--ico-magenta)"/>' +
+    '<ellipse cx="40" cy="35" rx="5.5" ry="9" transform="rotate(120 40 35)" fill="var(--ico-magenta)"/>' +
+    '<ellipse cx="32" cy="34" rx="5" ry="6.5" fill="var(--ico-violeta)"/>' +
+    '<circle cx="32" cy="26" r="4.6" fill="var(--ico-amarillo)"/>' +
+    '<circle cx="30.3" cy="25.2" r="1" fill="var(--ico-violeta)" stroke="none"/>' +
+    '<circle cx="33.6" cy="25.6" r="1" fill="var(--ico-violeta)" stroke="none"/>' +
+    '<circle cx="32" cy="27.6" r="1" fill="var(--ico-violeta)" stroke="none"/>',
+
+  /* "Todas": sombrero vueltiao con tejido y cinta tricolor. */
+  sombrero:
+    '<ellipse cx="32" cy="43" rx="28" ry="12" fill="var(--ico-arena)"/>' +
+    '<ellipse cx="32" cy="43" rx="21" ry="8.6" fill="none" stroke-width="1.8"/>' +
+    '<ellipse cx="32" cy="43" rx="13.5" ry="5.6" fill="none" stroke-width="1.8"/>' +
+    '<path d="M20 43 C20 21 24 13 32 13 C40 13 44 21 44 43 Z" fill="var(--ico-arena)"/>' +
+    '<rect x="21" y="36.4" width="22" height="1.7" fill="var(--ico-amarillo)"/>' +
+    '<rect x="21" y="38.4" width="22" height="1.7" fill="var(--ico-azul)"/>' +
+    '<rect x="21" y="40.4" width="22" height="1.7" fill="var(--ico-rojo)"/>' +
+    '<path d="M23 30 C26.5 28.4 37.5 28.4 41 30" fill="none" stroke-width="1.8"/>' +
+    '<path d="M22.5 22 C26.5 20.4 37.5 20.4 41.5 22" fill="none" stroke-width="1.8"/>',
+
+  /* --------------------- Dificultad: granos de café --------------------- */
+  /* Fácil: un grano. */
+  cafe1:
+    '<path d="M32 16 C29 8 33 3 40 3 C41 9 38 15 32 16 Z" fill="var(--ico-verde)"/>' +
+    '<ellipse cx="32" cy="33" rx="10.5" ry="13.5" fill="var(--ico-cafe)"/>' +
+    '<path d="M32 20.5 C28.5 26 28.5 40 32 45.5" fill="none" stroke="var(--ico-cafe-2)" stroke-width="2.2"/>',
+
+  /* Medio: dos granos. */
+  cafe2:
+    '<path d="M32 17 C30 10 33 6 39 6 C40 11 37 16 32 17 Z" fill="var(--ico-verde)"/>' +
+    '<ellipse cx="20" cy="33" rx="7.6" ry="12" fill="var(--ico-cafe)"/>' +
+    '<ellipse cx="44" cy="33" rx="7.6" ry="12" fill="var(--ico-cafe)"/>' +
+    '<path d="M20 21.5 C17.5 26 17.5 40 20 44.5" fill="none" stroke="var(--ico-cafe-2)" stroke-width="2"/>' +
+    '<path d="M44 21.5 C41.5 26 41.5 40 44 44.5" fill="none" stroke="var(--ico-cafe-2)" stroke-width="2"/>',
+
+  /* Difícil: tres granos. */
+  cafe3:
+    '<path d="M32 16 C30 9 33 5 39 5 C40 10 37 15 32 16 Z" fill="var(--ico-verde)"/>' +
+    '<ellipse cx="13" cy="34" rx="7" ry="10.5" fill="var(--ico-cafe)"/>' +
+    '<ellipse cx="32" cy="34" rx="7" ry="10.5" fill="var(--ico-cafe)"/>' +
+    '<ellipse cx="51" cy="34" rx="7" ry="10.5" fill="var(--ico-cafe)"/>' +
+    '<path d="M13 23.5 C11 27.5 11 40.5 13 44.5" fill="none" stroke="var(--ico-cafe-2)" stroke-width="1.9"/>' +
+    '<path d="M32 23.5 C30 27.5 30 40.5 32 44.5" fill="none" stroke="var(--ico-cafe-2)" stroke-width="1.9"/>' +
+    '<path d="M51 23.5 C49 27.5 49 40.5 51 44.5" fill="none" stroke="var(--ico-cafe-2)" stroke-width="1.9"/>',
+
+  /* --------- Retroalimentación del modal (se dibujan más grandes) -------- */
+  /* Respuesta correcta: medalla tricolor con chulo y confeti alrededor. */
+  retroCorrecta:
+    '<circle cx="8" cy="10" r="3" fill="var(--ico-amarillo)"/>' +
+    '<rect x="53" y="6" width="5" height="5" rx="1" transform="rotate(20 55.5 8.5)" fill="var(--ico-azul)"/>' +
+    '<circle cx="57" cy="52" r="3" fill="var(--ico-rojo)"/>' +
+    '<rect x="4" y="50" width="5" height="5" rx="1" transform="rotate(-15 6.5 52.5)" fill="var(--ico-verde)"/>' +
+    '<circle cx="32" cy="32" r="26" fill="var(--ico-amarillo)"/>' +
+    '<circle cx="32" cy="32" r="21" fill="var(--ico-azul)"/>' +
+    '<circle cx="32" cy="32" r="16.5" fill="var(--ico-nieve)"/>' +
+    '<path d="M19.1 34.5 L22.6 31 L31.1 39.4 L41.2 20.7 L45.2 23.7 L27.5 42.9 Z" fill="var(--ico-verde)"/>',
+
+  /* Respuesta incorrecta: equis roja dentro de un disco blanco con marco rojo. */
+  retroIncorrecta:
+    '<circle cx="32" cy="32" r="26" fill="var(--ico-rojo)"/>' +
+    '<circle cx="32" cy="32" r="20.5" fill="var(--ico-nieve)"/>' +
+    '<path d="M26.5 15 L37.5 15 L37.5 26.5 L49 26.5 L49 37.5 L37.5 37.5 L37.5 49 L26.5 49 L26.5 37.5 L15 37.5 L15 26.5 L26.5 26.5 Z" fill="var(--ico-rojo)" transform="rotate(45 32 32)"/>',
+
+  /* Tiempo agotado: reloj despertador tricolor. */
+  retroTiempo:
+    '<circle cx="15" cy="17" r="7.5" fill="var(--ico-rojo)"/>' +
+    '<circle cx="49" cy="17" r="7.5" fill="var(--ico-rojo)"/>' +
+    '<rect x="28.5" y="6" width="7" height="7" rx="2.5" fill="var(--ico-rojo)"/>' +
+    '<circle cx="32" cy="34" r="21" fill="var(--ico-amarillo)"/>' +
+    '<circle cx="32" cy="34" r="16.5" fill="var(--ico-nieve)"/>' +
+    '<rect x="30.6" y="20" width="2.8" height="6" rx="1.4" fill="var(--ico-azul)"/>' +
+    '<rect x="41.5" y="32.6" width="6" height="2.8" rx="1.4" fill="var(--ico-azul)"/>' +
+    '<rect x="30.6" y="42" width="2.8" height="6" rx="1.4" fill="var(--ico-azul)"/>' +
+    '<rect x="16.5" y="32.6" width="6" height="2.8" rx="1.4" fill="var(--ico-azul)"/>' +
+    '<rect x="30.6" y="26" width="2.8" height="8" rx="1.4" fill="var(--ico-rojo)" transform="rotate(-60 32 34)"/>' +
+    '<rect x="30.6" y="22" width="2.8" height="12" rx="1.4" fill="var(--ico-rojo)" transform="rotate(60 32 34)"/>' +
+    '<circle cx="32" cy="34" r="2.2" fill="var(--ico-contorno)"/>'
+};
+
 /**
  * Devuelve el marcado SVG de un icono por su nombre.
  * @param {string} nombre - clave dentro de ICONOS.
@@ -121,6 +262,26 @@ function iconoSVG(nombre) {
   return (
     '<svg class="icono-svg" viewBox="0 0 24 24" width="1em" height="1em" ' +
     'fill="none" stroke="currentColor" stroke-width="2" ' +
+    'stroke-linecap="round" stroke-linejoin="round" ' +
+    'aria-hidden="true" focusable="false">' + dibujo + '</svg>'
+  );
+}
+
+/**
+ * Devuelve el marcado SVG de una ilustración a color por su nombre.
+ * El contorno (--ico-contorno) es lo que garantiza que el dibujo se
+ * distinga tanto sobre tarjeta clara como oscura.
+ * Si el nombre no existe en ILUSTRACIONES se usa el icono de trazo
+ * equivalente, para que la interfaz nunca quede sin imagen.
+ * @param {string} nombre - clave dentro de ILUSTRACIONES.
+ * @returns {string} SVG en línea.
+ */
+function ilustracionSVG(nombre) {
+  const dibujo = ILUSTRACIONES[nombre];
+  if (!dibujo) return iconoSVG(nombre);
+  return (
+    '<svg class="ilustracion-svg" viewBox="0 0 64 64" width="1em" height="1em" ' +
+    'stroke="var(--ico-contorno)" stroke-width="1.6" ' +
     'stroke-linecap="round" stroke-linejoin="round" ' +
     'aria-hidden="true" focusable="false">' + dibujo + '</svg>'
   );

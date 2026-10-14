@@ -75,7 +75,7 @@ function renderConfiguracion() {
     boton.dataset.categoria = categoria.id;
     boton.setAttribute('aria-pressed', 'false');
     boton.innerHTML =
-      '<span class="tarjeta-seleccion-icono" aria-hidden="true">' + iconoSVG(categoria.icono) + '</span>' +
+      '<span class="tarjeta-seleccion-icono" aria-hidden="true">' + ilustracionSVG(categoria.icono) + '</span>' +
       '<span class="tarjeta-seleccion-nombre">' + categoria.nombre + '</span>';
     contenedorCategorias.appendChild(boton);
   });
@@ -90,7 +90,7 @@ function renderConfiguracion() {
     boton.dataset.dificultad = dificultad.id;
     boton.setAttribute('aria-pressed', 'false');
     boton.innerHTML =
-      '<span class="tarjeta-seleccion-icono" aria-hidden="true">' + iconoSVG(dificultad.icono) + '</span>' +
+      '<span class="tarjeta-seleccion-icono" aria-hidden="true">' + ilustracionSVG(dificultad.icono) + '</span>' +
       '<span class="tarjeta-seleccion-nombre">' + dificultad.nombre + '</span>' +
       '<span class="tarjeta-seleccion-extra">x' + dificultad.multiplicador + '</span>';
     contenedorDificultades.appendChild(boton);
@@ -231,11 +231,18 @@ function ocultarOpcionesIncorrectas(indiceCorrecta, estados) {
 
 function mostrarRetroalimentacion(datos) {
   const modal = document.getElementById('modal-retro');
+  const icono = document.getElementById('retro-icono');
   const estado = document.getElementById('retro-estado');
   const explicacion = document.getElementById('retro-explicacion');
   const puntos = document.getElementById('retro-puntos');
   const boton = document.getElementById('btn-siguiente');
   const falla = document.getElementById('retro-falla');
+
+  /* Ilustración acorde al desenlace: acierto, fallo o tiempo agotado. */
+  const clave = datos.correcta
+    ? 'retroCorrecta'
+    : (datos.tiempoAgotado ? 'retroTiempo' : 'retroIncorrecta');
+  icono.innerHTML = ilustracionSVG(clave);
 
   estado.textContent = datos.correcta ? '¡Correcto!' : 'Incorrecto';
   estado.className = 'retro-estado ' + (datos.correcta ? 'es-correcta' : 'es-incorrecta');

@@ -15,6 +15,26 @@
   --verde-paisaje: #158f52;
   --naranja: #f57c00;
 
+  /* paleta de las ilustraciones a color (js/iconos.js → ILUSTRACIONES).
+     El contorno es el que garantiza que el dibujo se distinga sobre la
+     tarjeta; los rellenos claros (nieve, arena, pergamino, amarillo) van
+     siempre delimitados por él. */
+  --ico-contorno: #1b2440;
+  --ico-azul: #003893;
+  --ico-azul-claro: #2f6fd0;
+  --ico-amarillo: #fcd116;
+  --ico-rojo: #ce1126;
+  --ico-verde: #2f8f5b;
+  --ico-nieve: #ffffff;
+  --ico-arena: #efd9ae;
+  --ico-pergamino: #f3e2bf;
+  --ico-pergamino-2: #d9bd8c;
+  --ico-pergamino-linea: #a3763a;
+  --ico-cafe: #7a4a24;
+  --ico-cafe-2: #4e2c14;
+  --ico-magenta: #c2185b;
+  --ico-violeta: #7b2d8e;
+
   /* tema claro */
   --fondo: #f2f5fb;
   --fondo-degradado: linear-gradient(160deg, #fff7d6 0%, #f2f5fb 45%, #e7efff 100%);
@@ -44,6 +64,24 @@
   /* Verde de estado más claro: sobre fondos oscuros el verde del tema claro
      no alcanzaba el 4.5:1 que pide WCAG AA para texto normal. */
   --verde: #45d18b;
+  /* Paleta de ilustraciones para fondo oscuro: se aclaran los rellenos
+     (sobre #161d31 el azul bandera casi desaparecía), pero el contorno se
+     mantiene oscuro igual que en tema claro: las líneas del dibujo no cambian. */
+  --ico-contorno: #1b2440;
+  --ico-azul: #6b8cff;
+  --ico-azul-claro: #8fb0ff;
+  --ico-amarillo: #ffd83d;
+  --ico-rojo: #ff6b6b;
+  --ico-verde: #5fd39a;
+  --ico-nieve: #f2f6ff;
+  --ico-arena: #e7cfae;
+  --ico-pergamino: #d9c49a;
+  --ico-pergamino-2: #b79a70;
+  --ico-pergamino-linea: #9a7b52;
+  --ico-cafe: #b57a45;
+  --ico-cafe-2: #7d4f2a;
+  --ico-magenta: #ff7fb0;
+  --ico-violeta: #c98cff;
   --sombra: 0 12px 30px rgba(0, 0, 0, 0.45);
   --sombra-suave: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
@@ -596,13 +634,13 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--sombra-suave);
 }
 
+/* Ilustración a color de la tarjeta: 52 px para que se aprecie el detalle. */
 .tarjeta-seleccion-icono {
-  font-size: 1.8rem;
+  font-size: 3.25rem;
   line-height: 1;
-  color: var(--azul);
 }
 
-[data-tema="oscuro"] .tarjeta-seleccion-icono { color: var(--amarillo); }
+.ilustracion-svg { display: block; }
 
 .tarjeta-seleccion-extra {
   font-size: 0.75rem;
@@ -867,6 +905,17 @@ img { max-width: 100%; display: block; }
   transform: translateY(30px);
   animation: subir 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+/* Ilustración del desenlace: 80 px, más grande que las de las tarjetas. */
+.retro-icono {
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.retro-icono:empty { display: none; }
 
 .retro-estado {
   font-size: 1.5rem;

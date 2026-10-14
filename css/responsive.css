@@ -79,6 +79,10 @@
 
   .grid-dificultades { grid-template-columns: 1fr; }
 
+  .tarjeta-seleccion-icono { font-size: 2.75rem; }
+
+  .retro-icono { font-size: 4rem; }
+
   .hud-puntaje strong { font-size: 1.35rem; }
 
   .comodin { flex: 1 1 auto; }

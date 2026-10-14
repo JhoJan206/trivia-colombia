@@ -117,9 +117,9 @@ const PREGUNTAS = [
     categoria: 'geografia',
     dificultad: 'dificil',
     enunciado: '¿Cuál es el volcán activo más alto de Colombia?',
-    opciones: ['Nevado del Ruiz', 'Galeras', 'Nevado del Huila', 'Puracé'],
+    opciones: ['Nevado del Huila', 'Galeras', 'Nevado del Ruiz', 'Puracé'],
     correcta: 0,
-    explicacion: 'El Nevado del Ruiz, en Caldas y Tolima, alcanza cerca de 5.321 metros de altitud.'
+    explicacion: 'El Nevado del Huila, alcanza cerca de 5.364 metros de altitud.'
   },
 
   /* ------------------------------ HISTORIA ------------------------------- */
@@ -172,7 +172,7 @@ const PREGUNTAS = [
     id: 16,
     categoria: 'historia',
     dificultad: 'medio',
-    enunciado: '¿Qué heroína de la independencia es conocida como «La Pequeña Tirana»?',
+    enunciado: '¿Qué heroína de la independencia es conocida como «La Pola»?',
     opciones: ['Policarpa Salavarrieta', 'María de los Ángeles Roldán', 'Antonia Santos', 'Manuela Beltrán'],
     correcta: 0,
     explicacion: 'Policarpa Salavarrieta fue una heroína neogranadina ejecutada por los realistas en 1817.'
@@ -375,18 +375,18 @@ const PREGUNTAS = [
     categoria: 'deportes',
     dificultad: 'dificil',
     enunciado: '¿En qué año Colombia ganó su primera Copa América de fútbol?',
-    opciones: ['1947', '1975', '1991', '2001'],
+    opciones: ['2001', '1975', '1991', '1947'],
     correcta: 0,
-    explicacion: 'Colombia conquistó su primer título continental en la Copa América de 1947, disputada en Ecuador.'
+    explicacion: 'Colombia conquistó su primer título continental en la Copa América de 2001.'
   },
   {
     id: 39,
     categoria: 'deportes',
     dificultad: 'dificil',
     enunciado: '¿Quién fue el primer colombiano en ganar la Vuelta a España?',
-    opciones: ['Nairo Quintana', 'Egan Bernal', 'Fabio Parra', 'Luis Herrera'],
+    opciones: ['Luis Herrera', 'Egan Bernal', 'Fabio Parra', 'Nairo Quintana'],
     correcta: 0,
-    explicacion: 'Nairo Quintana ganó la Vuelta a España en 2016; antes, Fabio Parra había sido tercero en el Tour.'
+    explicacion: 'Luis Herrera ganó la Vuelta a España en 1987; antes, Fabio Parra había sido tercero en el Tour.'
   },
   {
     id: 40,
@@ -449,9 +449,9 @@ const PREGUNTAS = [
     categoria: 'naturaleza',
     dificultad: 'medio',
     enunciado: '¿Cuál es el mamífero terrestre más grande de Colombia?',
-    opciones: ['Tapir andino (danta)', 'Oso de anteojos', 'Jaguar', 'Tapir amazónico'],
+    opciones: ['Tapir amazonico', 'Oso de anteojos', 'Jaguar', 'Tapir andino'],
     correcta: 0,
-    explicacion: 'El tapir andino o danta puede pesar más de 250 kilos; es la mayor bestia terrestre del país.'
+    explicacion: 'El tapir amazonico puede pesar más de 250 kilos; es la mayor bestia terrestre del país.'
   },
   {
     id: 47,
