@@ -66,7 +66,48 @@ const ICONOS = {
     '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>',
   silencio:
     '<path d="M11 5 6 9H2v6h4l5 4V5z"/>' +
-    '<path d="m22 9-6 6"/><path d="m16 9 6 6"/>'
+    '<path d="m22 9-6 6"/><path d="m16 9 6 6"/>',
+
+  /* --------------------- Símbolos colombianos --------------------------- */
+  /* Paisaje andino (Geografía). */
+  montanas:
+    '<path d="M3 19h18L14.2 6.2 10.6 13 8.6 9.8Z"/>' +
+    '<path d="m12.2 9.2 1.9 3.1"/>',
+  /* Mochila arhuaca (Cultura y tradiciones). */
+  mochila:
+    '<rect x="5" y="7" width="14" height="14" rx="3"/>' +
+    '<path d="M9 7V5a3 3 0 0 1 6 0v2"/>' +
+    '<path d="M9 12h6v4H9z"/>',
+  /* Orquídea, flor nacional (Ciencia y naturaleza). */
+  orquidea:
+    '<circle cx="12" cy="12" r="2.2"/>' +
+    '<circle cx="12" cy="4" r="2"/><circle cx="19.6" cy="8.5" r="2"/>' +
+    '<circle cx="16.7" cy="17.5" r="2"/><circle cx="7.3" cy="17.5" r="2"/>' +
+    '<circle cx="4.4" cy="8.5" r="2"/>' +
+    '<path d="M12 9.8V6"/><path d="m13.8 10.9 3.4-1.3"/><path d="m13.1 13.7 2.3 2.6"/>' +
+    '<path d="m10.9 13.7-2.3 2.6"/><path d="m10.2 10.9-3.4-1.3"/>',
+  /* Sombrero vueltiao (símbolo nacional, categoría "Todas"). */
+  sombrero:
+    '<ellipse cx="12" cy="14" rx="10" ry="3.6"/>' +
+    '<path d="M6.4 14C7 9 9 6 12 6s5 3 5.6 8"/>' +
+    '<path d="M8 11.4h8"/>',
+
+  /* --------------------- Dificultad: granos de café --------------------- */
+  cafe1:
+    '<ellipse cx="12" cy="12" rx="4" ry="6.4"/>' +
+    '<path d="M12 5.6c-1.6 2-1.6 10.8 0 12.8"/>',
+  cafe2:
+    '<ellipse cx="7.2" cy="12" rx="3" ry="5.2"/>' +
+    '<path d="M7.2 6.8c-1.2 1.7-1.2 8.7 0 10.4"/>' +
+    '<ellipse cx="16.8" cy="12" rx="3" ry="5.2"/>' +
+    '<path d="M16.8 6.8c-1.2 1.7-1.2 8.7 0 10.4"/>',
+  cafe3:
+    '<ellipse cx="4.2" cy="12" rx="2.3" ry="4.2"/>' +
+    '<path d="M4.2 7.8c-1 1.5-1 6.9 0 8.4"/>' +
+    '<ellipse cx="12" cy="12" rx="2.3" ry="4.2"/>' +
+    '<path d="M12 7.8c-1 1.5-1 6.9 0 8.4"/>' +
+    '<ellipse cx="19.8" cy="12" rx="2.3" ry="4.2"/>' +
+    '<path d="M19.8 7.8c-1 1.5-1 6.9 0 8.4"/>'
 };
 
 /**
