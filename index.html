@@ -12,6 +12,10 @@
 </head>
 <body>
 
+  <!-- Fondo decorativo de dos capas: cielo (aves y estrellas) y paisaje andino. -->
+  <div class="fondo-cielo" aria-hidden="true"></div>
+  <div class="fondo-sabor" aria-hidden="true"></div>
+
   <!-- ============================ CABECERA ============================ -->
   <header class="cabecera">
     <a class="marca" href="#" data-ir="pantalla-inicio" aria-label="Ir al inicio de Trivia Colombia">
@@ -89,7 +93,6 @@
         <ul class="lista-instrucciones">
           <li><strong>50/50:</strong> elimina dos opciones incorrectas. Una vez por partida.</li>
           <li><strong>+10 segundos:</strong> suma diez segundos al temporizador. Una vez por partida.</li>
-          <li><strong>x2 puntos:</strong> duplica los puntos de tu próxima respuesta correcta. Una vez por partida.</li>
           <li>Cada comodín usado descuenta <strong>30 puntos</strong> (el puntaje puede quedar en negativo).</li>
         </ul>
 
@@ -162,9 +165,6 @@
         </button>
         <button id="btn-comodin-tiempo" type="button" class="btn comodin" title="Suma 10 segundos (−30 puntos)">
           +10 s <span class="comodin-costo">−30</span>
-        </button>
-        <button id="btn-comodin-doble" type="button" class="btn comodin" title="Duplica los puntos de tu próxima respuesta correcta (−30 puntos)">
-          x2 puntos <span class="comodin-costo">−30</span>
         </button>
         <button id="btn-salir-juego" type="button" class="btn btn-fantasma" title="Abandonar la partida">Salir</button>
       </div>

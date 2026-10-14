@@ -15,18 +15,18 @@
 /* El campo "icono" referencia una clave de ICONOS (js/iconos.js),
    que se renderiza como SVG en la interfaz. */
 const CATEGORIAS = [
-  { id: 'todas', nombre: 'Todas', icono: 'dados' },
-  { id: 'geografia', nombre: 'Geografía', icono: 'mapa' },
+  { id: 'todas', nombre: 'Todas', icono: 'sombrero' },
+  { id: 'geografia', nombre: 'Geografía', icono: 'montanas' },
   { id: 'historia', nombre: 'Historia', icono: 'pergamino' },
-  { id: 'cultura', nombre: 'Cultura y Tradiciones', icono: 'mascaras' },
+  { id: 'cultura', nombre: 'Cultura y Tradiciones', icono: 'mochila' },
   { id: 'deportes', nombre: 'Deportes', icono: 'balon' },
-  { id: 'naturaleza', nombre: 'Ciencia y Naturaleza', icono: 'hoja' }
+  { id: 'naturaleza', nombre: 'Ciencia y Naturaleza', icono: 'orquidea' }
 ];
 
 const DIFICULTADES = [
-  { id: 'facil', nombre: 'Fácil', multiplicador: 1, icono: 'sonrisa' },
-  { id: 'medio', nombre: 'Medio', multiplicador: 1.5, icono: 'duda' },
-  { id: 'dificil', nombre: 'Difícil', multiplicador: 2, icono: 'dificultad' }
+  { id: 'facil', nombre: 'Fácil', multiplicador: 1, icono: 'cafe1' },
+  { id: 'medio', nombre: 'Medio', multiplicador: 1.5, icono: 'cafe2' },
+  { id: 'dificil', nombre: 'Difícil', multiplicador: 2, icono: 'cafe3' }
 ];
 
 const PREGUNTAS = [

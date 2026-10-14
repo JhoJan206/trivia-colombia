@@ -26,10 +26,9 @@ const estado = {
   aciertos: 0,
   racha: 0,
   puntaje: 0,
-  doblePuntaje: false,
   tiempoRestante: SEGUNDOS_POR_PREGUNTA,
   tiempoTotal: 0,
-  comodines: { cincuenta: true, tiempo: true, doble: true },
+  comodines: { cincuenta: true, tiempo: true },
   bloqueada: false,
   temporizadorId: null,
   falladas: []
@@ -111,10 +110,9 @@ function iniciarPartida(categoria, dificultad, jugador) {
   estado.aciertos = 0;
   estado.racha = 0;
   estado.puntaje = 0;
-  estado.doblePuntaje = false;
   estado.tiempoRestante = SEGUNDOS_POR_PREGUNTA;
   estado.tiempoTotal = 0;
-  estado.comodines = { cincuenta: true, tiempo: true, doble: true };
+  estado.comodines = { cincuenta: true, tiempo: true };
   estado.bloqueada = false;
   estado.falladas = [];
 
@@ -188,15 +186,8 @@ function responder(indiceOpcion) {
     }
 
     const multiplicador = multiplicadorDificultad(estado.dificultad);
-    let ganados = Math.round(puntosBrutos * multiplicador);
+    const ganados = Math.round(puntosBrutos * multiplicador);
     if (multiplicador > 1) detalle.push('x' + multiplicador);
-
-    /* comodín x2: duplica los puntos de esta respuesta */
-    if (estado.doblePuntaje) {
-      ganados *= 2;
-      detalle.push('comodín x2');
-      estado.doblePuntaje = false;
-    }
 
     estado.puntaje += ganados;
     estado.aciertos += 1;
@@ -213,7 +204,6 @@ function responder(indiceOpcion) {
     });
   } else {
     estado.racha = 0;
-    estado.doblePuntaje = false;
     reproducirSonido('error');
 
     estado.falladas.push({
@@ -235,8 +225,7 @@ function responder(indiceOpcion) {
 }
 
 /**
- * Comodines: 50/50 (elimina dos incorrectas), tiempo extra (+10 s) y
- * x2 puntos (duplica la próxima respuesta correcta).
+ * Comodines: 50/50 (elimina dos incorrectas) y tiempo extra (+10 s).
  * Cada uso descuenta 30 puntos (puede dejar el marcador en negativo) y
  * solo está disponible una vez por partida.
  */
@@ -258,9 +247,6 @@ function usarComodin(tipo) {
     estado.comodines.tiempo = false;
     estado.tiempoRestante += BONUS_TIEMPO;
     actualizarTemporizador(estado.tiempoRestante, SEGUNDOS_POR_PREGUNTA);
-  } else if (tipo === 'doble' && estado.comodines.doble) {
-    estado.comodines.doble = false;
-    estado.doblePuntaje = true;
   } else {
     return;
   }

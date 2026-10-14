@@ -78,7 +78,6 @@ function registrarEventos() {
   /* comodines (RF-09) */
   document.getElementById('btn-comodin-50').addEventListener('click', () => usarComodin('cincuenta'));
   document.getElementById('btn-comodin-tiempo').addEventListener('click', () => usarComodin('tiempo'));
-  document.getElementById('btn-comodin-doble').addEventListener('click', () => usarComodin('doble'));
 
   /* avanzar desde la retroalimentación */
   document.getElementById('btn-siguiente').addEventListener('click', siguientePregunta);
