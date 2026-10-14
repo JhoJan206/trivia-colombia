@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Trivia Colombia">
+  <defs>
+    <clipPath id="disco"><circle cx="32" cy="32" r="30"/></clipPath>
+  </defs>
+  <g clip-path="url(#disco)">
+    <rect width="64" height="32" fill="#FFD100"/>
+    <rect y="32" width="64" height="16" fill="#003893"/>
+    <rect y="48" width="64" height="16" fill="#CE1126"/>
+  </g>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#003893" stroke-width="4"/>
+  <text x="32" y="46" text-anchor="middle"
+        font-family="Segoe UI, Arial, sans-serif" font-size="40" font-weight="800"
+        fill="#003893" stroke="#FFFFFF" stroke-width="3" paint-order="stroke">?</text>
+</svg>

@@ -1,0 +1,120 @@
+/* =====================================================================
+   responsive.css — Trivia Colombia
+   Media queries: de 360 px (móvil) hasta escritorio.
+   ===================================================================== */
+
+/* ------------------------------ ESCritorio --------------------------- */
+@media (min-width: 1024px) {
+  .opciones { grid-template-columns: repeat(2, 1fr); }
+
+  .modal {
+    align-items: center;
+  }
+}
+
+/* ------------------------------- TABLETA ----------------------------- */
+@media (max-width: 900px) {
+  .hud {
+    gap: 0.8rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .hud-progreso { flex-basis: 100%; order: 3; }
+
+  .comodines .btn-fantasma { margin-left: 0; }
+}
+
+@media (max-width: 768px) {
+  .cabecera {
+    padding: 0.6rem 1rem;
+  }
+
+  .grid-seleccion {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+
+  .tabla-datos { font-size: 0.85rem; }
+
+  .tabla-datos th,
+  .tabla-datos td { padding: 0.55rem 0.6rem; }
+}
+
+/* ------------------------------- MÓVIL ------------------------------- */
+@media (max-width: 600px) {
+  .opciones {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .enunciado { margin-bottom: 1rem; }
+
+  .opcion { padding: 0.9rem 1rem; }
+
+  .pista-teclado { display: none; }
+
+  .botones-secundarios .btn { flex: 1 1 auto; }
+
+  .resultado-datos { grid-template-columns: repeat(2, 1fr); }
+
+  .hud-tiempo {
+    width: 66px;
+    height: 66px;
+  }
+
+  #tiempo-restante { font-size: 1.35rem; }
+
+  .modal { padding: 0.6rem; }
+
+  .modal-contenido { border-radius: var(--radio) var(--radio) 0 0; }
+}
+
+@media (max-width: 480px) {
+  .marca span { font-size: 1rem; }
+
+  .btn-icono { width: 38px; height: 38px; }
+
+  .tarjeta { padding: 1.2rem 1rem; }
+
+  .grid-seleccion { grid-template-columns: repeat(2, 1fr); }
+
+  .grid-dificultades { grid-template-columns: 1fr; }
+
+  .hud-puntaje strong { font-size: 1.35rem; }
+
+  .comodin { flex: 1 1 auto; }
+
+  .estadisticas { grid-template-columns: repeat(2, 1fr); }
+
+  .estadistica strong { font-size: 1.4rem; }
+}
+
+/* --------------------------- MÓVIL PEQUEÑO --------------------------- */
+@media (max-width: 380px) {
+  #principal { padding-left: 0.7rem; padding-right: 0.7rem; }
+
+  .tarjeta { padding: 1rem 0.85rem; }
+
+  .grid-seleccion { grid-template-columns: 1fr; }
+
+  .grid-dificultades { grid-template-columns: 1fr; }
+
+  .hud { padding: 0.75rem; }
+
+  .hud-tiempo { width: 58px; height: 58px; }
+
+  #tiempo-restante { font-size: 1.2rem; }
+
+  .opcion-letra { width: 30px; height: 30px; font-size: 0.85rem; }
+
+  .botones-secundarios { flex-direction: column; }
+
+  .botones-secundarios .btn { width: 100%; }
+}
+
+/* ------------------------- MODO APISADO/PAPEL ------------------------ */
+@media print {
+  .cabecera,
+  .comodines,
+  .pista-teclado,
+  .pie { display: none; }
+}

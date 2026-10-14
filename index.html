@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trivia Colombia: juego educativo de preguntas sobre la geografía, historia, cultura, deportes y naturaleza de Colombia.">
+  <meta name="theme-color" content="#FFD100">
+  <title>Trivia Colombia | Juego de preguntas sobre Colombia</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ============================ CABECERA ============================ -->
+  <header class="cabecera">
+    <a class="marca" href="#" data-ir="pantalla-inicio" aria-label="Ir al inicio de Trivia Colombia">
+      <img src="assets/img/logo.svg" alt="Logo de Trivia Colombia" width="40" height="40">
+      <span>Trivia <strong>Colombia</strong></span>
+    </a>
+
+    <div class="cabecera-acciones">
+      <button id="btn-tema" type="button" class="btn-icono" aria-pressed="false" title="Cambiar a tema oscuro">🌙</button>
+      <button id="btn-sonido" type="button" class="btn-icono" aria-pressed="true" title="Desactivar sonido">🔊</button>
+    </div>
+  </header>
+
+  <main id="principal">
+
+    <!-- =========================== INICIO ============================= -->
+    <section id="pantalla-inicio" class="pantalla activa" aria-labelledby="titulo-inicio">
+      <div class="tarjeta tarjeta-inicio">
+        <img src="assets/img/logo.svg" alt="" class="logo-grande" width="96" height="96">
+        <h1 id="titulo-inicio">Trivia Colombia</h1>
+        <p class="subtitulo">Pon a prueba lo que sabes de la geografía, la historia y la cultura de nuestro país.</p>
+
+        <form id="form-inicio" novalidate>
+          <div class="campo">
+            <label for="input-nombre">Tu nombre</label>
+            <input id="input-nombre" name="nombre" type="text" placeholder="Escribe tu nombre"
+                   maxlength="20" autocomplete="off" required aria-describedby="error-nombre">
+            <p id="error-nombre" class="mensaje-error" role="alert" hidden></p>
+          </div>
+          <button type="submit" class="btn btn-primario btn-grande">Jugar</button>
+        </form>
+
+        <div class="botones-secundarios">
+          <button type="button" class="btn" data-ir="pantalla-instrucciones">📖 Instrucciones</button>
+          <button type="button" class="btn" data-ir="pantalla-ranking">🏆 Ranking</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== INSTRUCCIONES ========================= -->
+    <section id="pantalla-instrucciones" class="pantalla" aria-labelledby="titulo-instrucciones" aria-hidden="true">
+      <div class="tarjeta">
+        <h2 id="titulo-instrucciones">Instrucciones</h2>
+
+        <h3>¿Cómo se juega?</h3>
+        <ol class="lista-instrucciones">
+          <li>Escribe tu nombre y elige una categoría y un nivel de dificultad.</li>
+          <li>Responde 10 preguntas; cada una tiene 4 opciones y solo una es correcta.</li>
+          <li>Tienes <strong>20 segundos</strong> por pregunta; si se acaba el tiempo, cuenta como incorrecta.</li>
+          <li>Al responder verás de inmediato si acertaste y una breve explicación.</li>
+          <li>Al terminar obtendrás tu puntaje, que se guarda en el ranking local del dispositivo.</li>
+        </ol>
+
+        <h3>Comodines</h3>
+        <ul class="lista-instrucciones">
+          <li><strong>50/50:</strong> elimina dos opciones incorrectas. Una vez por partida.</li>
+          <li><strong>+10 segundos:</strong> suma diez segundos al temporizador. Una vez por partida.</li>
+          <li>Cada comodín usado descuenta <strong>30 puntos</strong>.</li>
+        </ul>
+
+        <h3>Sistema de puntuación</h3>
+        <div class="tabla-contenedor">
+          <table class="tabla-datos">
+            <thead>
+              <tr><th scope="col">Concepto</th><th scope="col">Puntos</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Respuesta correcta</td><td>+100</td></tr>
+              <tr><td>Bonificación por rapidez</td><td>+5 por segundo restante (máx. +100)</td></tr>
+              <tr><td>Racha de 3 aciertos seguidos</td><td>+50</td></tr>
+              <tr><td>Respuesta incorrecta o sin responder</td><td>0</td></tr>
+              <tr><td>Uso de un comodín</td><td>-30</td></tr>
+              <tr><td>Multiplicador: fácil / medio / difícil</td><td>x1 / x1.5 / x2</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button type="button" class="btn btn-primario" data-ir="pantalla-inicio">Volver al inicio</button>
+      </div>
+    </section>
+
+    <!-- ===================== CONFIGURACIÓN DE PARTIDA ================== -->
+    <section id="pantalla-config" class="pantalla" aria-labelledby="titulo-config" aria-hidden="true">
+      <div class="tarjeta tarjeta-ancho">
+        <h2 id="titulo-config">Configura tu partida</h2>
+        <p class="subtitulo">Hola, <strong id="nombre-config">jugador</strong>. Elige categoría y dificultad.</p>
+
+        <h3 class="subtitulo-seccion">Categoría</h3>
+        <div id="contenedor-categorias" class="grid-seleccion" role="group" aria-label="Categorías"></div>
+
+        <h3 class="subtitulo-seccion">Dificultad</h3>
+        <div id="contenedor-dificultades" class="grid-seleccion grid-dificultades" role="group" aria-label="Dificultad"></div>
+
+        <p id="mejor-puntaje" class="dato-mejor-puntaje" aria-live="polite"></p>
+
+        <div class="botones-secundarios">
+          <button id="btn-comenzar" type="button" class="btn btn-primario btn-grande">Comenzar</button>
+          <button type="button" class="btn" data-ir="pantalla-inicio">Volver</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ JUEGO ============================== -->
+    <section id="pantalla-juego" class="pantalla" aria-labelledby="enunciado" aria-hidden="true">
+      <div class="hud">
+        <div class="hud-bloque hud-progreso">
+          <span id="texto-progreso">Pregunta 1 de 10</span>
+          <div class="barra" role="progressbar" aria-label="Progreso de la partida">
+            <div id="barra-progreso" class="barra-relleno"></div>
+          </div>
+        </div>
+
+        <div class="hud-bloque hud-puntaje">
+          <span class="hud-etiqueta">Puntaje</span>
+          <strong id="puntaje-actual">0</strong>
+        </div>
+
+        <div id="temporizador" class="hud-bloque hud-tiempo" style="--avance: 100%;">
+          <span id="tiempo-restante">20</span>
+          <span class="hud-etiqueta">seg</span>
+        </div>
+      </div>
+
+      <div class="comodines">
+        <button id="btn-comodin-50" type="button" class="btn comodin" title="Elimina dos opciones incorrectas (−30 puntos)">
+          50/50 <span class="comodin-costo">−30</span>
+        </button>
+        <button id="btn-comodin-tiempo" type="button" class="btn comodin" title="Suma 10 segundos (−30 puntos)">
+          +10 s <span class="comodin-costo">−30</span>
+        </button>
+        <button id="btn-salir-juego" type="button" class="btn btn-fantasma" title="Abandonar la partida">Salir</button>
+      </div>
+
+      <p id="etiqueta-pregunta" class="etiqueta-pregunta"></p>
+      <h2 id="enunciado" class="enunciado"></h2>
+
+      <div id="opciones" class="opciones" role="group" aria-label="Opciones de respuesta"></div>
+
+      <p class="pista-teclado" aria-hidden="true">Usa las teclas 1 – 4 para responder</p>
+    </section>
+
+    <!-- ========================== RESULTADO ============================ -->
+    <section id="pantalla-resultado" class="pantalla" aria-labelledby="titulo-resultado" aria-hidden="true">
+      <div class="tarjeta tarjeta-ancho">
+        <h2 id="titulo-resultado">Resultado de la partida</h2>
+
+        <div class="resultado-destacado">
+          <span class="hud-etiqueta">Puntaje final</span>
+          <strong id="puntaje-final">0</strong>
+        </div>
+
+        <div class="resultado-datos">
+          <div class="dato"><span>Aciertos</span><strong id="dato-aciertos">0</strong></div>
+          <div class="dato"><span>Tiempo total</span><strong id="dato-tiempo">0 s</strong></div>
+          <div class="dato"><span>Posición</span><strong id="dato-posicion">—</strong></div>
+          <div class="dato"><span>Configuración</span><strong id="dato-configuracion">—</strong></div>
+        </div>
+
+        <p id="mensaje-final" class="mensaje-final" aria-live="polite"></p>
+
+        <h3 class="subtitulo-seccion">Revisión de preguntas falladas</h3>
+        <p id="sin-fallas" class="vacio" hidden>¡No fallaste ninguna pregunta!</p>
+        <ul id="lista-falladas" class="lista-falladas"></ul>
+
+        <div class="botones-secundarios">
+          <button id="btn-jugar-de-nuevo" type="button" class="btn btn-primario">Jugar de nuevo</button>
+          <button type="button" class="btn" data-ir="pantalla-ranking">Ver ranking</button>
+          <button type="button" class="btn btn-fantasma" data-ir="pantalla-inicio">Inicio</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== RANKING Y ESTADÍSTICAS ===================== -->
+    <section id="pantalla-ranking" class="pantalla" aria-labelledby="titulo-ranking" aria-hidden="true">
+      <div class="tarjeta tarjeta-ancho">
+        <h2 id="titulo-ranking">Ranking local · Top 10</h2>
+        <p class="subtitulo">Los mejores puntajes guardados en este dispositivo.</p>
+
+        <p id="ranking-vacio" class="vacio" hidden>Aún no hay partidas registradas. ¡Juega la primera!</p>
+
+        <div class="tabla-contenedor">
+          <table id="tabla-ranking" class="tabla-datos">
+            <caption class="oculto-visual">Top 10 de puntajes de Trivia Colombia</caption>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Puntaje</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Dificultad</th>
+                <th scope="col">Fecha</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpo-ranking"></tbody>
+          </table>
+        </div>
+
+        <h3 class="subtitulo-seccion">Estadísticas del jugador</h3>
+        <div class="estadisticas">
+          <div class="estadistica"><strong id="stat-partidas">0</strong><span>Partidas jugadas</span></div>
+          <div class="estadistica"><strong id="stat-porcentaje">0%</strong><span>Aciertos</span></div>
+          <div class="estadistica"><strong id="stat-mejor">0</strong><span>Mejor puntaje</span></div>
+          <div class="estadistica">
+            <strong id="stat-categoria">Sin datos</strong>
+            <span id="stat-categoria-detalle">Categoría con mejor desempeño</span>
+          </div>
+        </div>
+
+        <div class="botones-secundarios">
+          <button id="btn-borrar-ranking" type="button" class="btn btn-peligro">Borrar ranking</button>
+          <button type="button" class="btn btn-primario" data-ir="pantalla-inicio">Volver al inicio</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================== RETROALIMENTACIÓN ========================= -->
+  <div id="modal-retro" class="modal" role="dialog" aria-modal="true" aria-labelledby="retro-estado" hidden>
+    <div class="modal-contenido">
+      <p id="retro-estado" class="retro-estado">¡Correcto!</p>
+      <p id="retro-puntos" class="retro-puntos"></p>
+      <p id="retro-falla" class="retro-falla"></p>
+      <p id="retro-explicacion" class="retro-explicacion"></p>
+      <button id="btn-siguiente" type="button" class="btn btn-primario btn-grande">Siguiente pregunta</button>
+    </div>
+  </div>
+
+  <footer class="pie">
+    <p>Trivia Colombia · Proyecto académico · HTML5, CSS3 y JavaScript</p>
+  </footer>
+
+  <script src="js/preguntas.js"></script>
+  <script src="js/almacenamiento.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/juego.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
