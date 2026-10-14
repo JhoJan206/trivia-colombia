@@ -121,8 +121,27 @@ img { max-width: 100%; display: block; }
   padding: 0.7rem clamp(1rem, 4vw, 2.5rem);
   background: color-mix(in srgb, var(--superficie) 88%, transparent);
   backdrop-filter: blur(10px);
-  border-bottom: 3px solid var(--amarillo);
 }
+
+/* Fase 1 — franja tricolor (bandera de Colombia) como acento de color.
+   Son pseudo-elementos decorativos de 3 px: no cambian el layout ni el HTML. */
+.cabecera::after,
+.pie::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    var(--amarillo) 0 33.33%,
+    var(--azul) 33.33% 66.66%,
+    var(--rojo) 66.66% 100%
+  );
+}
+
+.cabecera::after { bottom: 0; }
 
 .marca {
   display: flex;
@@ -175,12 +194,14 @@ img { max-width: 100%; display: block; }
 .pantalla.animar { animation: aparecer 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
 
 .pie {
+  position: relative;
   text-align: center;
   padding: 1rem;
   font-size: 0.85rem;
   color: var(--texto-suave);
-  border-top: 1px solid var(--borde);
 }
+
+.pie::before { top: 0; }
 
 /* ------------------------------ TARJETA ----------------------------- */
 .tarjeta {
