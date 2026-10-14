@@ -79,9 +79,30 @@ h1, h2, h3 {
   margin: 0 0 0.6em;
 }
 
-h1 { font-size: clamp(2rem, 5vw, 2.8rem); }
-h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
-h3 { font-size: 1.1rem; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.06em; }
+h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.005em;
+}
+
+h3 { font-size: 1.1rem; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Fase 2 — subrayado tipo pincel bajo el título principal (solo decorativo). */
+#titulo-inicio::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 6px;
+  margin: 0.45rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--amarillo), var(--naranja));
+}
 
 p { margin: 0 0 1em; }
 
