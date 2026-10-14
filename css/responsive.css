@@ -90,6 +90,7 @@
 
 /* --------------------------- MÓVIL PEQUEÑO --------------------------- */
 @media (max-width: 380px) {
+  .fondo-cielo,
   .fondo-sabor { display: none; }
 
   #principal { padding-left: 0.7rem; padding-right: 0.7rem; }
@@ -118,6 +119,7 @@
   .cabecera,
   .comodines,
   .pista-teclado,
+  .fondo-cielo,
   .fondo-sabor,
   .pie { display: none; }
 }

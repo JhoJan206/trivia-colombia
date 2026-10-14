@@ -177,15 +177,12 @@ function mostrarPregunta(estado) {
 function actualizarComodines(estado) {
   const botonCincuenta = document.getElementById('btn-comodin-50');
   const botonTiempo = document.getElementById('btn-comodin-tiempo');
-  const botonDoble = document.getElementById('btn-comodin-doble');
 
   botonCincuenta.disabled = !estado.comodines.cincuenta || estado.bloqueada;
   botonTiempo.disabled = !estado.comodines.tiempo || estado.bloqueada;
-  botonDoble.disabled = !estado.comodines.doble || estado.bloqueada;
 
   botonCincuenta.classList.toggle('agotado', !estado.comodines.cincuenta);
   botonTiempo.classList.toggle('agotado', !estado.comodines.tiempo);
-  botonDoble.classList.toggle('agotado', !estado.comodines.doble);
 }
 
 /**

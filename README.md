@@ -2,6 +2,9 @@
 
 Juego web educativo de preguntas sobre la geografía, la historia, la cultura, los deportes y la naturaleza de Colombia. Construido con **HTML5, CSS3 y JavaScript (ES6+)**, sin dependencias ni frameworks: se ejecuta directamente en el navegador y guarda el ranking en `localStorage`.
 
+🔗 **Repositorio:** <https://github.com/JhoJan206/trivia-colombia>
+🌐 **Juego publicado:** _pendiente de desplegar en Vercel_
+
 ## ✨ Funcionalidades
 
 - Pantallas: Inicio, Instrucciones, Configuración de partida, Juego, Retroalimentación, Resultado y Ranking/Estadísticas.
@@ -9,7 +12,7 @@ Juego web educativo de preguntas sobre la geografía, la historia, la cultura, l
 - 5 categorías + «Todas» y 3 niveles de dificultad (fácil, medio, difícil).
 - Rondas de 10 preguntas seleccionadas al azar y sin repetir; opciones mezcladas (Fisher-Yates).
 - Temporizador de 20 segundos por pregunta con barra de progreso circular.
-- Comodines **50/50**, **+10 s** y **x2 puntos**, uno de cada uno por partida (−30 puntos cada uno; el puntaje puede quedar en negativo).
+- Comodines **50/50** y **+10 s**, uno de cada uno por partida (−30 puntos cada uno; el puntaje puede quedar en negativo).
 - Retroalimentación inmediata: opción correcta en verde, incorrecta en rojo y explicación breve.
 - Sistema de puntuación con bonificación por rapidez, racha y multiplicador por dificultad.
 - Revisión de las preguntas falladas al finalizar la partida.
@@ -29,11 +32,14 @@ trivia-colombia/
 │   ├── app.js            Punto de entrada y navegación
 │   ├── juego.js          Lógica: preguntas, tiempo, puntaje, comodines
 │   ├── preguntas.js      Banco de 50 preguntas y catálogos de datos
+│   ├── iconos.js         Íconos SVG en línea (categorías, dificultad y controles)
 │   ├── ui.js             Renderizado de pantallas en el DOM
 │   └── almacenamiento.js Ranking, estadísticas y preferencias (localStorage)
 ├── assets/
 │   ├── img/logo.svg      Logotipo
 │   └── sonidos/          Efectos de acierto, error, clic y fin de partida
+├── docs/
+│   └── diseno/           Diseño de la interfaz (capturas de las pantallas)
 └── README.md
 ```
 
@@ -52,11 +58,11 @@ git init
 git add .
 git commit -m "Trivia Colombia: juego de preguntas"
 git branch -M main
-git remote add origin https://github.com/<usuario>/<repositorio>.git
+git remote add origin https://github.com/JhoJan206/trivia-colombia.git
 git push -u origin main
 ```
 
-Luego, en [vercel.com](https://vercel.com): *Add New → Project* → importar el repositorio → desplegar (configuración por defecto, framework *Other*).
+Luego, en [vercel.com](https://vercel.com): *Add New → Project* → importar el repositorio → desplegar (configuración por defecto, framework *Other*). Vercel entrega la URL pública del juego (`https://<proyecto>.vercel.app`); anótala aquí y en la entrega del proyecto.
 
 ## 📐 Reglas y puntuación
 
