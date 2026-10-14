@@ -12,19 +12,21 @@
  * Total: 50 preguntas (10 por categoría).
  */
 
+/* El campo "icono" referencia una clave de ICONOS (js/iconos.js),
+   que se renderiza como SVG en la interfaz. */
 const CATEGORIAS = [
-  { id: 'todas', nombre: 'Todas', icono: '🎲' },
-  { id: 'geografia', nombre: 'Geografía', icono: '🗺️' },
-  { id: 'historia', nombre: 'Historia', icono: '📜' },
-  { id: 'cultura', nombre: 'Cultura y Tradiciones', icono: '🎭' },
-  { id: 'deportes', nombre: 'Deportes', icono: '⚽' },
-  { id: 'naturaleza', nombre: 'Ciencia y Naturaleza', icono: '🌿' }
+  { id: 'todas', nombre: 'Todas', icono: 'dados' },
+  { id: 'geografia', nombre: 'Geografía', icono: 'mapa' },
+  { id: 'historia', nombre: 'Historia', icono: 'pergamino' },
+  { id: 'cultura', nombre: 'Cultura y Tradiciones', icono: 'mascaras' },
+  { id: 'deportes', nombre: 'Deportes', icono: 'balon' },
+  { id: 'naturaleza', nombre: 'Ciencia y Naturaleza', icono: 'hoja' }
 ];
 
 const DIFICULTADES = [
-  { id: 'facil', nombre: 'Fácil', multiplicador: 1, icono: '🙂' },
-  { id: 'medio', nombre: 'Medio', multiplicador: 1.5, icono: '🤔' },
-  { id: 'dificil', nombre: 'Difícil', multiplicador: 2, icono: '🤯' }
+  { id: 'facil', nombre: 'Fácil', multiplicador: 1, icono: 'sonrisa' },
+  { id: 'medio', nombre: 'Medio', multiplicador: 1.5, icono: 'duda' },
+  { id: 'dificil', nombre: 'Difícil', multiplicador: 2, icono: 'dificultad' }
 ];
 
 const PREGUNTAS = [
@@ -337,9 +339,9 @@ const PREGUNTAS = [
     categoria: 'deportes',
     dificultad: 'facil',
     enunciado: '¿Cuál es el deporte nacional de Colombia según la ley?',
-    opciones: ['Béisbol', 'Fútbol', 'Ciclismo', 'Pádel'],
+    opciones: ['Tejo', 'Fútbol', 'Ciclismo', 'Pádel'],
     correcta: 0,
-    explicacion: 'El béisbol fue declarado deporte nacional de Colombia por la Ley 61 de 1968.'
+    explicacion: 'El Tejo fue declarado deporte nacional de Colombia por la Ley 613 de 2000.'
   },
   {
     id: 35,

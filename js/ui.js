@@ -75,7 +75,7 @@ function renderConfiguracion() {
     boton.dataset.categoria = categoria.id;
     boton.setAttribute('aria-pressed', 'false');
     boton.innerHTML =
-      '<span class="tarjeta-seleccion-icono" aria-hidden="true">' + categoria.icono + '</span>' +
+      '<span class="tarjeta-seleccion-icono" aria-hidden="true">' + iconoSVG(categoria.icono) + '</span>' +
       '<span class="tarjeta-seleccion-nombre">' + categoria.nombre + '</span>';
     contenedorCategorias.appendChild(boton);
   });
@@ -90,7 +90,7 @@ function renderConfiguracion() {
     boton.dataset.dificultad = dificultad.id;
     boton.setAttribute('aria-pressed', 'false');
     boton.innerHTML =
-      '<span class="tarjeta-seleccion-icono" aria-hidden="true">' + dificultad.icono + '</span>' +
+      '<span class="tarjeta-seleccion-icono" aria-hidden="true">' + iconoSVG(dificultad.icono) + '</span>' +
       '<span class="tarjeta-seleccion-nombre">' + dificultad.nombre + '</span>' +
       '<span class="tarjeta-seleccion-extra">x' + dificultad.multiplicador + '</span>';
     contenedorDificultades.appendChild(boton);
@@ -177,12 +177,15 @@ function mostrarPregunta(estado) {
 function actualizarComodines(estado) {
   const botonCincuenta = document.getElementById('btn-comodin-50');
   const botonTiempo = document.getElementById('btn-comodin-tiempo');
+  const botonDoble = document.getElementById('btn-comodin-doble');
 
   botonCincuenta.disabled = !estado.comodines.cincuenta || estado.bloqueada;
   botonTiempo.disabled = !estado.comodines.tiempo || estado.bloqueada;
+  botonDoble.disabled = !estado.comodines.doble || estado.bloqueada;
 
   botonCincuenta.classList.toggle('agotado', !estado.comodines.cincuenta);
   botonTiempo.classList.toggle('agotado', !estado.comodines.tiempo);
+  botonDoble.classList.toggle('agotado', !estado.comodines.doble);
 }
 
 /**

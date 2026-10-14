@@ -78,6 +78,7 @@ function registrarEventos() {
   /* comodines (RF-09) */
   document.getElementById('btn-comodin-50').addEventListener('click', () => usarComodin('cincuenta'));
   document.getElementById('btn-comodin-tiempo').addEventListener('click', () => usarComodin('tiempo'));
+  document.getElementById('btn-comodin-doble').addEventListener('click', () => usarComodin('doble'));
 
   /* avanzar desde la retroalimentación */
   document.getElementById('btn-siguiente').addEventListener('click', siguientePregunta);
@@ -175,12 +176,16 @@ function sincronizarBotonesPreferencias(preferencias) {
   const btnSonido = document.getElementById('btn-sonido');
   const btnTema = document.getElementById('btn-tema');
 
+  const textoSonido = preferencias.sonido ? 'Desactivar sonido' : 'Activar sonido';
   btnSonido.setAttribute('aria-pressed', preferencias.sonido ? 'true' : 'false');
-  btnSonido.textContent = preferencias.sonido ? '🔊' : '🔇';
-  btnSonido.title = preferencias.sonido ? 'Desactivar sonido' : 'Activar sonido';
+  btnSonido.innerHTML = iconoSVG(preferencias.sonido ? 'sonido' : 'silencio');
+  btnSonido.title = textoSonido;
+  btnSonido.setAttribute('aria-label', textoSonido);
 
   const oscuro = preferencias.tema === 'oscuro';
+  const textoTema = oscuro ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
   btnTema.setAttribute('aria-pressed', oscuro ? 'true' : 'false');
-  btnTema.textContent = oscuro ? '☀️' : '🌙';
-  btnTema.title = oscuro ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
+  btnTema.innerHTML = iconoSVG(oscuro ? 'sol' : 'luna');
+  btnTema.title = textoTema;
+  btnTema.setAttribute('aria-label', textoTema);
 }

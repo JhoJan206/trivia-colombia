@@ -148,12 +148,17 @@ img { max-width: 100%; display: block; }
   border-radius: 50%;
   border: 1px solid var(--borde);
   background: var(--superficie-2);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  display: grid;
+  place-items: center;
   cursor: pointer;
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
 .btn-icono:hover { transform: translateY(-2px); background: var(--superficie); }
+
+/* Iconos SVG: heredan el color y el tamaño de la tipografía del contenedor. */
+.icono-svg { display: block; }
 
 /* ------------------------------ LAYOUT ------------------------------ */
 #principal {
@@ -254,6 +259,18 @@ img { max-width: 100%; display: block; }
   font-size: 1.15rem;
   padding: 0.95rem 1.5rem;
   letter-spacing: 0.03em;
+}
+
+/* Botones con icono SVG: alineación en línea y herencia de color. */
+.btn-con-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.icono-btn {
+  flex: 0 0 auto;
 }
 
 .btn-peligro {
@@ -394,7 +411,13 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--sombra-suave);
 }
 
-.tarjeta-seleccion-icono { font-size: 1.8rem; line-height: 1; }
+.tarjeta-seleccion-icono {
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--azul);
+}
+
+[data-tema="oscuro"] .tarjeta-seleccion-icono { color: var(--amarillo); }
 
 .tarjeta-seleccion-extra {
   font-size: 0.75rem;

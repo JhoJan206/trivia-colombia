@@ -9,7 +9,7 @@ Juego web educativo de preguntas sobre la geografía, la historia, la cultura, l
 - 5 categorías + «Todas» y 3 niveles de dificultad (fácil, medio, difícil).
 - Rondas de 10 preguntas seleccionadas al azar y sin repetir; opciones mezcladas (Fisher-Yates).
 - Temporizador de 20 segundos por pregunta con barra de progreso circular.
-- Comodines **50/50** y **+10 s**, uno de cada uno por partida (−30 puntos cada uno).
+- Comodines **50/50**, **+10 s** y **x2 puntos**, uno de cada uno por partida (−30 puntos cada uno; el puntaje puede quedar en negativo).
 - Retroalimentación inmediata: opción correcta en verde, incorrecta en rojo y explicación breve.
 - Sistema de puntuación con bonificación por rapidez, racha y multiplicador por dificultad.
 - Revisión de las preguntas falladas al finalizar la partida.
