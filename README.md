@@ -1,11 +1,8 @@
-# 🇨🇴 Trivia Colombia
+# Trivia Colombia
 
-Juego web educativo de preguntas sobre la geografía, la historia, la cultura, los deportes y la naturaleza de Colombia. Construido con **HTML5, CSS3 y JavaScript (ES6+)**, sin dependencias ni frameworks: se ejecuta directamente en el navegador y guarda el ranking en `localStorage`.
+proyecto creado como pracila para la calse de "Desarrollo Full Stack Con IA", este es un Juego web educativo de preguntas sobre la geografía, la historia, la cultura, los deportes y la naturaleza de Colombia. Construido con **HTML5, CSS3 y JavaScript (ES6+)**, sin dependencias ni frameworks: se ejecuta directamente en el navegador y guarda el ranking en `localStorage`.
 
-🔗 **Repositorio:** <https://github.com/JhoJan206/trivia-colombia>
-🌐 **Juego publicado:** _pendiente de desplegar en Vercel_
-
-## ✨ Funcionalidades
+## Funcionalidades
 
 - Pantallas: Inicio, Instrucciones, Configuración de partida, Juego, Retroalimentación, Resultado y Ranking/Estadísticas.
 - Identificación del jugador solo con su nombre (sin registro ni servidor).
@@ -20,7 +17,7 @@ Juego web educativo de preguntas sobre la geografía, la historia, la cultura, l
 - Tema claro/oscuro, sonido activable/desactivable y preferencias guardadas.
 - Responsive de 360 px a escritorio, accesible por teclado y con `prefers-reduced-motion`.
 
-## 🗂️ Estructura
+## Estructura
 
 ```
 trivia-colombia/
@@ -43,28 +40,16 @@ trivia-colombia/
 └── README.md
 ```
 
-## ▶️ Ejecución local
+## Ejecución local
 
 1. Clonar o descargar el repositorio.
-2. Abrir la carpeta en **Visual Studio Code**.
-3. Instalar la extensión **Live Server** y hacer clic derecho sobre `index.html` → *Open with Live Server*.
+2. Abrir el `index.html` directamente en el navegador, ya que no hay peticiones de red.
 
-> También funciona abriendo `index.html` directamente en el navegador, ya que no hay peticiones de red.
+## Despliegue en Vercel
 
-## 🚀 Despliegue en Vercel
+vercel: [Web desplegada en vercel](https://trivia-colombia-iota.vercel.app/)
 
-```bash
-git init
-git add .
-git commit -m "Trivia Colombia: juego de preguntas"
-git branch -M main
-git remote add origin https://github.com/JhoJan206/trivia-colombia.git
-git push -u origin main
-```
-
-Luego, en [vercel.com](https://vercel.com): *Add New → Project* → importar el repositorio → desplegar (configuración por defecto, framework *Other*). Vercel entrega la URL pública del juego (`https://<proyecto>.vercel.app`); anótala aquí y en la entrega del proyecto.
-
-## 📐 Reglas y puntuación
+## Reglas y puntuación
 
 | Concepto | Puntos |
 | --- | --- |
@@ -75,11 +60,11 @@ Luego, en [vercel.com](https://vercel.com): *Add New → Project* → importar e
 | Uso de un comodín | −30 |
 | Multiplicador (fácil / medio / difícil) | ×1 / ×1.5 / ×2 |
 
-## 📦 Banco de preguntas
+## Banco de preguntas
 
 `js/preguntas.js` contiene **50 preguntas** (10 por categoría) con enunciado, 4 opciones, respuesta correcta, explicación y nivel. Si el filtro de categoría + dificultad no alcanza para 10 preguntas, la partida se completa con preguntas de la misma categoría y luego con el resto del banco, sin repetir.
 
-## 🗄️ Almacenamiento local (localStorage)
+## Almacenamiento local (localStorage)
 
 | Clave | Contenido |
 | --- | --- |
@@ -89,6 +74,6 @@ Luego, en [vercel.com](https://vercel.com): *Add New → Project* → importar e
 
 No hay servidor, API ni base de datos: el ranking es local al dispositivo.
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 HTML5 semántico · CSS3 (variables, Flexbox, Grid, media queries, animaciones) · JavaScript ES6+ · localStorage · Git/GitHub · Vercel.
